@@ -1,0 +1,21 @@
+FROM debian:12
+
+RUN apt-get update && apt-get upgrade && apt-get add \
+	openssl \
+	nginx
+
+# supprime config de base pour la notre
+RUN rm -rf /etc/nginx/nginx.conf
+
+# cp ma config dans le path de base ngnix
+COPY ./config/nginx.conf /etc/nginx/nginx.conf
+
+# cp my_sh a la racine (VMs)
+COPY scripts/setup_nginx.sh /setup_nginx.sh
+
+RUN chmod -R +x /setup_nginx.sh
+
+# --(https)
+EXPOSE 443
+
+ENTRYPOINT ["setup_nginx.sh"]
