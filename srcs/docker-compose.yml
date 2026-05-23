@@ -32,3 +32,6 @@ volumes:
       type: none
       o: bind
       device: /home/thsykas/data/wordpress
+
+# network is for make communicate service beetween containeurs
+networks:
