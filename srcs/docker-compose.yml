@@ -5,3 +5,27 @@ services:
     ports:
       - 443:443
     restart: always  # requis suject crash contneur == restart
+
+  wordpress:
+    ports:
+      - 900:900
+    restart: always
+
+  mariadb:
+    restart: always
+
+  volumes:
+    mariadb:
+      driver: local
+      # list of param for volume
+      drivers_opts:
+        type: none
+        o: bind
+        device: home/thsykas/data  # store volume in target
+
+    wordpress:
+      drivers: local
+      drivers_opts:
+        type: none
+        o: bind
+        device: home/thsykas/data

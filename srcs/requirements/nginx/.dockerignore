@@ -1,2 +1,11 @@
-*.swp \
-.vscode
+# env and screts (never in IMAGE)
+# if make COPY .. cp secret in img
+.env
+secrets/
+*.env
+
+# editor OS --ignore
+.DS_Store
+.vscode/
+.idea/
+*.swp

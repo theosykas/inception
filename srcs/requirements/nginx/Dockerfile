@@ -1,4 +1,4 @@
-FROM debian:12
+FROM debian:bookworm
 
 RUN apt-get update && apt-get install -y \
 	openssl \
@@ -10,7 +10,7 @@ RUN rm -rf /etc/nginx/nginx.conf
 # cp ma config dans le path de base ngnix
 COPY ./config/nginx.conf /etc/nginx/nginx.conf
 
-# cp my_sh a la racine (VMs)
+# cp my_sh a la racine (VMs)  CIBLE/cp
 COPY scripts/setup_nginx.sh /setup_nginx.sh
 
 RUN chmod -R +x /setup_nginx.sh
