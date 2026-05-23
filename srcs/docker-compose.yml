@@ -7,25 +7,28 @@ services:
     restart: always  # requis suject crash contneur == restart
 
   wordpress:
-    ports:
-      - 900:900
+    volumes:
+      - wordpress:var/www/html/  # cherche les fichiers et ensuite redirige dans path/thsykas
     restart: always
 
   mariadb:
+    volumes:
+      - mariadb:/var/lib/mysql
     restart: always
 
-  volumes:
-    mariadb:
-      driver: local
-      # list of param for volume
-      drivers_opts:
-        type: none
-        o: bind
-        device: home/thsykas/data  # store volume in target
 
-    wordpress:
-      drivers: local
-      drivers_opts:
-        type: none
-        o: bind
-        device: home/thsykas/data
+volumes:
+  mariadb:
+    driver: local  # local sur (MACHINE)
+    # list of param for volume
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/thsykas/data/mariadb  # store volume in target
+
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/thsykas/data/wordpress
