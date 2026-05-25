@@ -18,4 +18,4 @@ RUN chmod -R +x /setup_nginx.sh
 # --(https)
 EXPOSE 443
 
-ENTRYPOINT ["setup_nginx.sh"]
+ENTRYPOINT ["/setup_nginx.sh"]

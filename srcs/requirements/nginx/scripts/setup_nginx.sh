@@ -9,4 +9,6 @@ if [ ! -d "etc/ssl/private" ]; then
 	-subj "/CN=$DOMAIN"
 fi
 
-nginx -g "daemon off;"  # lunch serv ngnix
+
+# take pid1 position replace bash
+exec nginx -g "daemon off;"  # lunch serv ngnix

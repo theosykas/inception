@@ -1,6 +1,6 @@
 services:
   nginx:
-    build: ./requirement/nginx
+    build: ./requirements/nginx
     container_name: nginx
     ports:
       - 443:443
@@ -9,6 +9,8 @@ services:
     restart: always  # requis suject crash contneur == restart
 
   wordpress:
+    build: ./requirements/worpress
+    containeur_name: wordpress
     volumes:
       - wordpress:/var/www/html/  # cherche les fichiers et ensuite redirige dans path/thsykas
     network:
@@ -16,6 +18,8 @@ services:
     restart: always
 
   mariadb:
+    build: ./requirements/mariadb
+    containeur_name: mariadb
     volumes:
       - mariadb:/var/lib/mysql
     network:

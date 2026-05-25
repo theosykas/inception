@@ -2,4 +2,4 @@ FROM debian:bookworm
 
 # 3306 port
 
-RUN apt-get update && apt-get upgrade && apt-get add \
+RUN apt-get update && apt-get add install -y mariadb-server \
