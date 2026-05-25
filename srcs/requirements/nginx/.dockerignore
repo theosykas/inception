@@ -1,6 +1,5 @@
-# env and screts (never in IMAGE)
+# ------env and screts (never in IMAGE)--------
 # if make COPY .. cp secret in img
-.env
 secrets/
 *.env
 

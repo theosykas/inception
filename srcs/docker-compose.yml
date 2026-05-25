@@ -4,25 +4,25 @@ services:
     container_name: nginx
     ports:
       - 443:443
-    network:
+    networks:
     - inception_network
     restart: always  # requis suject crash contneur == restart
 
   wordpress:
-    build: ./requirements/worpress
-    containeur_name: wordpress
+    build: ./requirements/wordpress
+    container_name: wordpress
     volumes:
       - wordpress:/var/www/html/  # cherche les fichiers et ensuite redirige dans path/thsykas
-    network:
+    networks:
     - inception_network
     restart: always
 
   mariadb:
     build: ./requirements/mariadb
-    containeur_name: mariadb
+    container_name: mariadb
     volumes:
       - mariadb:/var/lib/mysql
-    network:
+    networks:
     - inception_network
     restart: always
 

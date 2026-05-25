@@ -3,24 +3,27 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: thsykas <thsykas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/21 00:56:33 by theo              #+#    #+#              #
-#    Updated: 2026/05/21 01:03:14 by theo             ###   ########.fr        #
+#    Updated: 2026/05/25 14:29:19 by thsykas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+COMPOSE = docker compose -f srcs/docker-compose.yml
+
 build:
-	docker compose -f docker-compose.yml -f build
+	$(COMPOSE) build
 
 up:
-	docker compose -f docker-compose.yml up -f
+	$(COMPOSE) up
 down:
-	docker compose -f docker-compose.yml down -f
+	$(COMPOSE) down
 
 ps:
-	docker compose -f docker-compose.yml -f ps
+	$(COMPOSE) ps
 
 logs:
+	$(COMPOSE) logs
 
 .PHONY: up down build logs
