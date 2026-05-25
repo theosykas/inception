@@ -15,8 +15,8 @@ services:
       - wordpress:/var/www/html/  # cherche les fichiers et ensuite redirige dans path/thsykas
     networks:
     - inception_network
-    environements:
-    - MYSQL_USER = ${MYSQL_USER}
+    env_file:
+      - .env  # acces a toutes les var .env
     restart: always
 
   mariadb:
@@ -26,6 +26,8 @@ services:
       - mariadb:/var/lib/mysql
     networks:
     - inception_network
+    env_file:
+      - .env
     restart: always
 
 
