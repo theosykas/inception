@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# cas ou une commande ne fonctionne pas
+set -e
+
 if [ ! -f ]
 
 # pid 1

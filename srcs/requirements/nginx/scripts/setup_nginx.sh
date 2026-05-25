@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# cas ou une commande ne fonctionne pas
+set -e
+
+
 if [ ! -d "etc/ssl/private" ]; then
 	echo "create ssl certificate"
 	openssl req -x509 -nodes -newkey rsa:4096 -days 3650 \
@@ -11,4 +15,5 @@ fi
 
 
 # take pid1 position replace bash
+echo "lunching nginx service deamon_off first PID
 exec nginx -g "daemon off;"  # lunch serv ngnix
