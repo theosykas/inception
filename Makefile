@@ -34,6 +34,6 @@ logs:
 	$(COMPOSE) logs
 
 fclean: down
-	rm -rf sudo rm -rf sudo
+	sudo rm -rf $(VOLUME_DB) $(WORDPRESS_VOLUME)
 
 .PHONY: up down build logs
