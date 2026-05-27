@@ -23,6 +23,7 @@ build: init_create_dir
 
 up: init_create_dir
 	$(COMPOSE) up
+
 down:
 	$(COMPOSE) down
 
@@ -31,5 +32,8 @@ ps:
 
 logs:
 	$(COMPOSE) logs
+
+fclean: down
+	rm -rf sudo rm -rf sudo
 
 .PHONY: up down build logs
