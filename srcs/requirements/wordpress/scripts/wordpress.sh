@@ -3,7 +3,9 @@
 # cas ou une commande ne fonctionne pas
 set -e
 
-if [ ! -f ]
+# if [ ! -f ]
+
+wp user create
 
 # pid 1
 echo "lunching php-fpm"
