@@ -11,8 +11,13 @@
 # **************************************************************************** #
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
+VOLUME_DB = /home/thsykas/data/db_volume
+WORDPRESS_VOLUME = home/thsykas/wordpress_volume
+
 
 build:
+## -p check if dir exist
+	mkdir -p $(VOLUME_DB) $(WORDPRESS_VOLUME)
 	$(COMPOSE) build
 
 up:
