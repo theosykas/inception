@@ -6,13 +6,16 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/21 00:56:33 by theo              #+#    #+#              #
-#    Updated: 2026/05/27 19:40:05 by theo             ###   ########.fr        #
+#    Updated: 2026/05/27 19:44:52 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
 VOLUME_DB = $(HOME)/thsykas/data/mariadb_volume
 WORDPRESS_VOLUME = $(HOME)/thsykas/data/wordpress_volume
+
+VOLUME_DB = /home/thsykas/data/mariadb_volume
+WORDPRESS_VOLUME = /home/thsykas/data/wordpress_volume
 
 BLUE  = \033[1;34m
 RESET = \033[0m
