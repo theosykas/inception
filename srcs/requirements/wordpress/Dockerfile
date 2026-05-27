@@ -10,6 +10,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 	&& mv wp-cli.phar /usr/local/binwp
 
 COPY scripts/wordpress.sh /wordpress.sh
-RUN chmod +x /wordpress.sh
+RUN chmod -R +x /wordpress.sh
 
 ENTRYPOINT ["/wordpress.sh"]
