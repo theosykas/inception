@@ -4,7 +4,7 @@
 set -e
 
 
-if [ ! -d "etc/ssl/private" ]; then
+if [ ! -f "/etc/ssl/certs/nginx.crt" ]; then
 	echo "create ssl certificate"
 	openssl req -x509 -nodes -newkey rsa:4096 -days 3650 \
 	-keyout /etc/ssl/private/nginx.key \
