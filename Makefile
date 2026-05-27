@@ -6,13 +6,13 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/21 00:56:33 by theo              #+#    #+#              #
-#    Updated: 2026/05/27 19:44:52 by theo             ###   ########.fr        #
+#    Updated: 2026/05/27 19:59:39 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
-VOLUME_DB = $(HOME)/thsykas/data/mariadb_volume
-WORDPRESS_VOLUME = $(HOME)/thsykas/data/wordpress_volume
+# VOLUME_DB = $(HOME)/thsykas/data/mariadb_volume
+# WORDPRESS_VOLUME = $(HOME)/thsykas/data/wordpress_volume
 
 VOLUME_DB = /home/thsykas/data/mariadb_volume
 WORDPRESS_VOLUME = /home/thsykas/data/wordpress_volume
@@ -77,10 +77,10 @@ build: init_create_dir
 	@echo "$(BLUE)$$LOGO_WHALE$(RESET)"
 
 up: init_create_dir
-	$(COMPOSE) up
+	$(COMPOSE) up -d
 
 down:
-	$(COMPOSE) down
+	$(COMPOSE) down -v
 
 ps:
 	@echo "$(GREEN)Listing active containeurs...$(RESET)"
