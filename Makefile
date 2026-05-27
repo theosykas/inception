@@ -14,13 +14,14 @@ COMPOSE = docker compose -f srcs/docker-compose.yml
 VOLUME_DB = /home/thsykas/data/mariadb_volume
 WORDPRESS_VOLUME = /home/thsykas/wordpress_volume
 
-
-build:
-## -p check if dir exist
+init_create_dir:
 	mkdir -p $(VOLUME_DB) $(WORDPRESS_VOLUME)
+
+build: init_create_dir
+## -p check if dir exist
 	$(COMPOSE) build
 
-up:
+up: init_create_dir
 	$(COMPOSE) up
 down:
 	$(COMPOSE) down
