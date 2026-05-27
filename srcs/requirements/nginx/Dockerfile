@@ -12,7 +12,6 @@ COPY ./config/nginx.conf /etc/nginx/nginx.conf
 
 # cp my_sh a la racine (VMs)  CIBLE/cp
 COPY scripts/setup_nginx.sh /setup_nginx.sh
-
 RUN chmod -R +x /setup_nginx.sh
 
 # --(https)
