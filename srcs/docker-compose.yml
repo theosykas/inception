@@ -38,14 +38,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/thsykas/data/mariadb  # store volume in target
+      device: /home/thsykas/data/mariadb_volume  # store volume in target
 
   wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/thsykas/data/wordpress
+      device: /home/thsykas/data/wordpress_volume
 
 # network is for make communicate service beetween containeurs
 networks:

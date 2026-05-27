@@ -10,10 +10,10 @@ if [ ! -d "etc/ssl/private" ]; then
 	-keyout /etc/ssl/private/nginx.key \
 	-out  /etc/ssl/certs/nginx.crt \
 	-sha256 \
-	-subj "/CN=$DOMAIN"
+	-subj "/CN=${DOMAIN}"
 fi
 
 
 # take pid1 position replace bash
-echo "lunching nginx service deamon_off first PID
+echo "lunching nginx service deamon_off ..."
 exec nginx -g "daemon off;"  # lunch serv ngnix
