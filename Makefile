@@ -12,7 +12,7 @@
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
 VOLUME_DB = /home/thsykas/data/mariadb_volume
-WORDPRESS_VOLUME = /home/thsykas/wordpress_volume
+WORDPRESS_VOLUME = /home/thsykas/data/wordpress_volume
 
 init_create_dir:
 	mkdir -p $(VOLUME_DB) $(WORDPRESS_VOLUME)
