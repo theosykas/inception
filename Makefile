@@ -51,10 +51,10 @@ define LOGO_WHALE
 		⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠈⠉⠛⠛⠋⠛⠛⠛⠛⠛⠋⠛⠙⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 
-		88                        88                              
-				88                        88                              
-				88                        88                              
-		,adPPYb,88  ,adPPYba,   ,adPPYba, 88   ,d8  ,adPPYba, 8b,dPPYba,  
+			88                         88                              
+			88                         88                              
+			88                         88                              
+		,adPPYb,88  ,adPPYba,   ,adPPYba,  88  ,d8  ,adPPYba, 8b,dPPYba,  
 		a8"    `Y88 a8"     "8a a8"     "" 88 ,a8"  a8P_____88 88P'   "Y8  
 		8b       88 8b       d8 8b         8888[    8PP""""""" 88          
 		"8a,   ,d88 "8a,   ,a8" "8a,   ,aa 88`"Yba, "8b,   ,aa 88          

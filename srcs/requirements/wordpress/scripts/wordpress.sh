@@ -10,6 +10,7 @@ if [ ! -f "wp-config.php" ]; then
 	wp core download --allow-root
 
 	# create config.php with database(mariaDB) and check data_base content
+	# code for php load db ...
 	wp config create \
 		--dbname="${MYSQL_DATABASE}" \
 		--dbuser="${MYSQL_USER}" \
