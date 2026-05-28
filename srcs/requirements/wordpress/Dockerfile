@@ -22,3 +22,6 @@ RUN chmod -R +x /wordpress.sh
 EXPOSE 9000
 
 ENTRYPOINT ["/wordpress.sh"]
+
+# -F enforce PID 1
+CMD [ "php-fpm8.2", "-F" ]

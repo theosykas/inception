@@ -16,4 +16,4 @@ fi
 
 # take pid1 position replace bash
 echo "lunching nginx service deamon_off ..."
-exec nginx -g "daemon off;"  # lunch serv ngnix
+exec "$@"  # lunch serv ngnix (CMD/Dockerfile)

@@ -43,5 +43,5 @@ else
 fi
 
 echo "lunching PHP_FPM..."
-# -F enforce PID 1
-exec php-fpm8.2 -F
+
+exec "$@"
