@@ -39,6 +39,9 @@ EOF
 
 echo "db create succesfully"
 
+mysqladmin -u root shutdown
+sleep 2
+
 else
 	echo "data base already exist"
 
