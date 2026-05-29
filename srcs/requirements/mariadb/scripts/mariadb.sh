@@ -8,8 +8,8 @@ if [ -z "${MYSQL_USER}" ] || [ -z "${MYSQL_DATABASE}" ]; then
 
 fi
 
-if [ ! -f "secrets/db_root_password.txt"] || \
-	[ ! -f "secrets/db_password.txt"]; then
+if [ ! -f "/run/secrets/db_root_password.txt"] || \
+	[ ! -f "/run/secrets/db_password.txt"]; then
 	echo "missing secrets passwd"
 	exit 1
 

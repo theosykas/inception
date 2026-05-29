@@ -12,9 +12,9 @@ if [ -z "${DOMAIN_NAME}" ] || \
 	exit 1
 fi
 
-if [ ! -f "secrets/wp_guest_password.txt" ] || \
-	[ ! -f "secrets/wp_root_password.txt" ] || \
-	[ ! -f "secrets/db_password.txt.txt" ]; then
+if [ ! -f "/run/secrets/wp_guest_password.txt" ] || \
+	[ ! -f "/run/secrets/wp_root_password.txt" ] || \
+	[ ! -f "/run/secrets/db_password.txt.txt" ]; then
 	echo "Error file /secrets is not detected"
 	exit 1
 fi
