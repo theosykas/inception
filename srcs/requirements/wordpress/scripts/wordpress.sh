@@ -21,10 +21,13 @@ fi
 
 if [ ! -f "wp-config.php" ]; then
 	echo "Wordpress not found, init in progress"
-	wp core download --allow-root
+	wp core download --allow-root --force
 
 	# create config.php with database(mariaDB) and check data_base content
 	# code for php load db ...
+
+	# wait (db)
+	sleep 10
 
 	# stock pass in var : db to log
 	DB_PASSWORD=$(cat /run/secrets/db_password)
