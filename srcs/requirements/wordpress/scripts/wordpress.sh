@@ -14,7 +14,7 @@ fi
 
 if [ ! -f "/run/secrets/wp_guest_password.txt" ] || \
 	[ ! -f "/run/secrets/wp_root_password.txt" ] || \
-	[ ! -f "/run/secrets/db_password.txt.txt" ]; then
+	[ ! -f "/run/secrets/db_password.txt" ]; then
 	echo "Error file /secrets is not detected"
 	exit 1
 fi
