@@ -30,9 +30,9 @@ sleep 3
 
 # emmbeded script in script comm with mariadb engine
 # flush appliaue les droits
-	mysql -u root <<EOF
-CREATE DATABASE IF NOT EXIST '\${MYSQL_DATABASE}\';
-CREATE USER IF NOT EXIST '${MYSQL_USER}@'%' IDENTIFY BY '${DB_PASSWORD}';
+mysql -u root <<EOF
+CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;
+CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';
 GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
