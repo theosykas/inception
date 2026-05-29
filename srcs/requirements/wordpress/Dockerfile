@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	php8.2-fpm \
 	php8.2-mysql \
+	php8.2-cli \
 	mariadb-client \
 	&& rm -rf /var/lib/apt/lists/*
 
