@@ -3,11 +3,12 @@ FROM debian:bookworm
 # mysql communicate with DB
 RUN apt-get update && apt-get install -y \
 	curl \
-	php7.0-fpm \
-	php7.0-mysql \
+	php8.2-fpm \
+	php8.2-mysql \
+	mariadb-client \
 	&& rm -rf /var/lib/apt/lists/*
 
-# RUN mkdir /run/php
+RUN mkdir -p /run/php
 
 # cli for WP service
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -24,4 +25,4 @@ EXPOSE 9000
 ENTRYPOINT ["/wordpress.sh"]
 
 # -F enforce PID 1
-CMD [ "php-fpm7.0", "-F" ]
+CMD [ "php-fpm8.2", "-F" ]
