@@ -3,7 +3,7 @@
 # cas ou une commande ne fonctionne pas
 set -e
 
-if [ -z "${DOMAIN_NAME}"]; then
+if [ -z "${DOMAIN_NAME}" ]; then
 	echo "Error domain nam var not found"
 	exit 1
 
