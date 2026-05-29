@@ -8,8 +8,8 @@ if [ -z "${MYSQL_USER}" ] || [ -z "${MYSQL_DATABASE}" ]; then
 
 fi
 
-if [ ! -f "/run/secrets/db_root_password.txt"] || \
-	[ ! -f "/run/secrets/db_password.txt"]; then
+if [ ! -f "/run/secrets/db_root_password.txt" ] || \
+	[ ! -f "/run/secrets/db_password.txt" ]; then
 	echo "missing secrets passwd"
 	exit 1
 
@@ -23,14 +23,14 @@ echo "data base initialisation..."
 
 mysql_install_db --user=mysql --datadir=/var/lib/mysql > /dev/null
 
-mysql_safe &
+mysqld_safe &
 
 # attendre la creqtion de la DB
 sleep 3
 
 # emmbeded script in script comm with mariadb engine
 # flush appliaue les droits
-mysql -u root <<EOF
+	mysql -u root <<EOF
 CRAEATE DATABASE IF NOT EXIST '\${MYSQL_DATABASE}\';
 CREATE USER IF NOT EXIST '${MYSQL_USER}@'%' IDENTIFY BY '${DB_PASSWORD}';
 GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
