@@ -3,8 +3,8 @@ FROM debian:bookworm
 # mysql communicate with DB
 RUN apt-get update && apt-get install -y \
 	curl \
-	php8.2-fpm \
-	php8.2-mysql \
+	php7.0-fpm \
+	php7.0-mysql \
 	&& rm -rf /var/lib/apt/lists/*
 
 # RUN mkdir /run/php
