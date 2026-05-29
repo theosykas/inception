@@ -5,28 +5,50 @@ set -e
 
 cd /var/www/html
 
+if [ -z "${DOMAIN_NAME}" ] || \
+	[ -z "${WP_USER_ADMIN}" ] || \
+	[ -z "${MYSQL_DATABASE}" ]; then
+	echo "Error environement variable not valid"
+	exit 1
+fi
+
+if [ ! -f "secrets/wp_guest_password.txt" ] || \
+	[ ! -f "secrets/wp_root_password.txt" ] || \
+	[ ! -f "secrets/db_password.txt.txt" ]; then
+	echo "Error file /secrets is not detected"
+	exit 1
+fi
+
 if [ ! -f "wp-config.php" ]; then
 	echo "Wordpress not found, init in progress"
 	wp core download --allow-root
 
 	# create config.php with database(mariaDB) and check data_base content
 	# code for php load db ...
+
+	# stock pass in var : db to log
+	DB_PASSWORD=$(cat /run/secrets/db_password.txt)
+
 	wp config create \
 		--dbname="${MYSQL_DATABASE}" \
 		--dbuser="${MYSQL_USER}" \
-		--dbpass="${MYSQL_PASSWORD}" \
+		--dbpass="${DB_PASSWORD}" \
 		--dbhost="mariadb" \
 		--allow-root
+
+
+	WP_PASS_ADM=$(cat /run/secrets/wp_root_password.txt)
 
 	# create admin user + init WP
 	wp core install \
 		--url=${DOMAIN_NAME} \
 		--title="inception_wp" \
 		--admin_user="${WP_USER_ADMIN}" \
-		--admin_password="${WP_ADMIN_PASSWD}" \
+		--admin_password="${WP_PASS_ADM}" \
 		--admin_email="${WP_ADMIN_MAIL}" \
 		--allow-root
 
+	WP_GUEST_PASSWD=$(cat /run/secrets/wp_guest_password.txt)
 	# guest user
 	wp user create \
 		"${WP_USER_GUEST}" \
@@ -43,5 +65,4 @@ else
 fi
 
 echo "lunching PHP_FPM..."
-
 exec "$@"
