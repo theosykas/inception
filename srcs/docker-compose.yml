@@ -22,6 +22,10 @@ services:
     - inception_network
     env_file:
       - .env  # acces a toutes les var .env
+    secrets:
+      - db_password
+      - wp_root_password
+      - wp_guest_password
     restart: always
 
   mariadb:
@@ -33,6 +37,9 @@ services:
     - inception_network
     env_file:
       - .env
+    secrets:
+     - db_root_password
+     - db_password
     restart: always
 
 volumes:
@@ -50,6 +57,16 @@ volumes:
       type: none
       o: bind
       device: /home/thsykas/data/wordpress_volume
+
+secrets:
+    db_password:
+       file: ../secrets/db_password.txt
+    db_root_password:
+       file: ../secrets/db_root_password.txt
+    wp_guest_password:
+       file: ../secrets/wp_guest_password.txt
+    wp_root_password:
+       file: ../secrets/wp_root_password.txt
 
 # network is for make communicate service beetween containeurs
 networks:
