@@ -12,4 +12,4 @@ EXPOSE 3306
 
 ENTRYPOINT ["/mariadb.sh"]
 
-CMD  [ "mysqld" ]
+CMD  [ "mysqld --user=mysql" ]
