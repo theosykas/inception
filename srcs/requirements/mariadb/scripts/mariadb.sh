@@ -8,15 +8,15 @@ if [ -z "${MYSQL_USER}" ] || [ -z "${MYSQL_DATABASE}" ]; then
 
 fi
 
-if [ ! -f "/run/secrets/db_root_password.txt" ] || \
-	[ ! -f "/run/secrets/db_password.txt" ]; then
+if [ ! -f "/run/secrets/db_root_password" ] || \
+	[ ! -f "/run/secrets/db_password" ]; then
 	echo "missing secrets passwd"
 	exit 1
 
 fi
 
-DB_ADM_PASSWORD=$(cat /run/secrets/db_root_password.txt)
-DB_PASSWORD=$(cat /run/secrets/db_password.txt)
+DB_ADM_PASSWORD=$(cat /run/secrets/db_root_password)
+DB_PASSWORD=$(cat /run/secrets/db_password)
 
 if [ ! -d "/var/lib/mysql/${MYSQL_DATABASE}" ]; then
 echo "data base initialisation..."

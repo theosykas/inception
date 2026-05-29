@@ -12,9 +12,9 @@ if [ -z "${DOMAIN_NAME}" ] || \
 	exit 1
 fi
 
-if [ ! -f "/run/secrets/wp_guest_password.txt" ] || \
-	[ ! -f "/run/secrets/wp_root_password.txt" ] || \
-	[ ! -f "/run/secrets/db_password.txt" ]; then
+if [ ! -f "/run/secrets/wp_guest_password" ] || \
+	[ ! -f "/run/secrets/wp_root_password" ] || \
+	[ ! -f "/run/secrets/db_password" ]; then
 	echo "Error file /secrets is not detected"
 	exit 1
 fi
@@ -27,7 +27,7 @@ if [ ! -f "wp-config.php" ]; then
 	# code for php load db ...
 
 	# stock pass in var : db to log
-	DB_PASSWORD=$(cat /run/secrets/db_password.txt)
+	DB_PASSWORD=$(cat /run/secrets/db_password)
 
 	wp config create \
 		--dbname="${MYSQL_DATABASE}" \
@@ -37,7 +37,7 @@ if [ ! -f "wp-config.php" ]; then
 		--allow-root
 
 
-	WP_PASS_ADM=$(cat /run/secrets/wp_root_password.txt)
+	WP_PASS_ADM=$(cat /run/secrets/wp_root_password)
 
 	# create admin user + init WP
 	wp core install \
@@ -48,7 +48,7 @@ if [ ! -f "wp-config.php" ]; then
 		--admin_email="${WP_ADMIN_MAIL}" \
 		--allow-root
 
-	WP_GUEST_PASSWD=$(cat /run/secrets/wp_guest_password.txt)
+	WP_GUEST_PASSWD=$(cat /run/secrets/wp_guest_password)
 	# guest user
 	wp user create \
 		"${WP_USER_GUEST}" \
