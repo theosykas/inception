@@ -62,12 +62,12 @@ if [ ! -f "wp-config.php" ]; then
 
 	echo "wordpress init completed succesfully"
 
-	chown -R www-data:www-data /var/www/html
-
 else
 	echo "wordpress already exist and configurated"
 
 fi
+
+chown -R www-data:www-data /var/www/html
 
 echo "lunching PHP_FPM..."
 exec "$@"

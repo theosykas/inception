@@ -8,6 +8,8 @@ services:
      - wordpress
     networks:
     - inception_network
+    volumes:
+    - wordpress:/var/www/html
     env_file:
      - .env
     restart: always  # requis suject crash contneur == restart
